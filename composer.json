@@ -1,0 +1,23 @@
+{
+    "name": "aliuwahab/temper_casper-coding",
+    "description": "A coding challenge administered by CasperCoding on behalf of Temper",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gbeila Aliu Wahab",
+            "email": "aliuwahab@gmail.com"
+        }
+    ],
+    "require": {
+        "php-di/php-di": "^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Temper\\": "src/",
+            "Test\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.5"
+    }
+}
