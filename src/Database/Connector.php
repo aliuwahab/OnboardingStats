@@ -1,5 +1,7 @@
 <?php
+namespace Temper\Database;
 
+use PDO;
 
 class Connector
 {
@@ -8,8 +10,10 @@ class Connector
     {
         try {
             return new PDO('mysql:dbname=test;host=localhost');
-        } catch (Exception $exception) {
+        } catch (\Exception $exception) {
             var_dump($exception->getMessage()); exit();
         }
     }
+
+
 }
