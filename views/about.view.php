@@ -38,15 +38,24 @@
 <!-- Begin page content -->
 <main role="main" class="flex-shrink-0">
     <div class="container">
-        <h1 class="mt-5">Sticky footer</h1>
-        <p class="lead">Pin a footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS.</p>
-        <p>Use <a href="/docs/4.3/examples/sticky-footer-navbar/">the sticky footer with a fixed navbar</a> if need be, too.</p>
+        <h1 class="mt-5">Sample About Page</h1>
+        <p class="lead">Sample About Description</p>
+        <i class="info">Note this is just added to test my custom routing</i>
+
+        <i class="nav nav-masthead justify-content-center">
+            <a class="nav-link active" href="/">Home</a>
+        </i>
+        <i class="nav nav-masthead justify-content-center">
+            <a class="nav-link active" href="/dashboard">Dashboard</a>
+        </i>
     </div>
+
+
 </main>
 
 <footer class="footer mt-auto py-3">
     <div class="container">
-        <span class="text-muted">Place sticky footer content here.</span>
+        <span class="text-muted">Sample Footer</span>
     </div>
 </footer>
 </body>

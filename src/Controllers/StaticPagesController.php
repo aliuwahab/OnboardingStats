@@ -1,7 +1,7 @@
 <?php
 namespace Temper\Controllers;
 
-class StaticPages
+class StaticPagesController
 {
 
     public function home(){

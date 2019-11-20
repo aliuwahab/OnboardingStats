@@ -2,9 +2,9 @@
 
 
 
-$router->get('', 'StaticPages@home');
-$router->get('about', 'StaticPages@about');
-$router->get('dashboard', 'Dashboard@index');
+$router->get('', 'StaticPagesController@home');
+$router->get('about', 'StaticPagesController@about');
+$router->get('dashboard', 'DashboardController@index');
 
 // Get the data
-$router->post('stats', 'DataLayer@getData');
+$router->get('stats/onboarding', 'StatisticsController@getData');

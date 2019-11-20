@@ -31,10 +31,10 @@
             }
         }
     </style>
-    <!-- Custom styles for this template -->
-    <link href="dashboard.css" rel="stylesheet">
+
+
 </head>
-<body class="col-md-12" id="app">
+<body class="col-md-12">
 <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
     <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Temper</a>
     <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
@@ -57,78 +57,54 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="/dashboard">
                             <span data-feather="file"></span>
                             Orders
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="shopping-cart"></span>
-                            Products
                         </a>
                     </li>
                 </ul>
             </div>
         </nav>
 
-        <main  role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 container">
+        <main id="app" role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 container">
 
             <br><br><br>
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h1 class="h2">Dashboard</h1>
             </div>
 
+
+            <div id="chartArea">
+                {{ message }}
+                {{ baseUrl }}
+            </div>
+
+
 <!--            //Chat HERE-->
-            <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+<!--            <canvas  class="my-4 w-100" id="myChart" width="900" height="380">-->
+<!--                {{ text }}-->
+<!--            </canvas>-->
 
             <h2>Tabular Representation of the Above Data</h2>
             <div class="table-responsive">
                 <table class="table table-striped table-sm">
                     <thead>
                     <tr>
-                        <th>#</th>
-                        <th>Header</th>
-                        <th>Header</th>
-                        <th>Header</th>
-                        <th>Header</th>
+                        <th>Week</th>
+                        <th>Step 1</th>
+                        <th>Step 2</th>
+                        <th>Step 3</th>
+                        <th>Step 4</th>
+                        <th>Step 5</th>
+                        <th>Step 6</th>
+                        <th>Step 7</th>
+                        <th>Step 8</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>1,001</td>
-                        <td>Lorem</td>
-                        <td>ipsum</td>
-                        <td>dolor</td>
-                        <td>sit</td>
-                    </tr>
-                    <tr>
-                        <td>1,002</td>
-                        <td>amet</td>
-                        <td>consectetur</td>
-                        <td>adipiscing</td>
-                        <td>elit</td>
-                    </tr>
-                    <tr>
-                        <td>1,003</td>
-                        <td>Integer</td>
-                        <td>nec</td>
-                        <td>odio</td>
-                        <td>Praesent</td>
-                    </tr>
-                    <tr>
-                        <td>1,003</td>
-                        <td>libero</td>
-                        <td>Sed</td>
-                        <td>cursus</td>
-                        <td>ante</td>
-                    </tr>
-                    <tr>
-                        <td>1,015</td>
-                        <td>sodales</td>
-                        <td>ligula</td>
-                        <td>in</td>
-                        <td>libero</td>
+                    <tr v-for="(weeklyStat, $key) in onboardingStats">
+                        <td>{{ $key }}</td>
+                        <td v-for="(stat, key) in weeklyStat">{{stat}}</td>
                     </tr>
                     </tbody>
                 </table>
@@ -136,16 +112,13 @@
         </main>
     </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="/docs/4.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
-<script src="../public/js/app.js"></script></body>
-<script src="../public/js/dashboard.js"></script></body>
+<script src="/js/dashboard.js"></script>
 
+</body>
 </html>
 
 
