@@ -1,5 +1,5 @@
 ###Temper@CasperCoding Challenge
-This is the the coding challenge adminstered to me by Casper Coding for a place in Temper (Netherlands)
+We want to see a Retention curve chart that shows how far a group of users (weekly cohorts) has progressed through the Onboarding Flow
 
 #### Requirements
 1. Ensure you have PHP 7.2+ installed in your environment

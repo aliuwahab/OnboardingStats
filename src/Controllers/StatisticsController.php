@@ -5,17 +5,29 @@ namespace Temper\Controllers;
 
 
 use Carbon\Carbon;
-use Exception;
 use League\Csv\Exception as CSVException;
 use League\Csv\Reader;
-use League\Csv\Statement;
+use Temper\Repositories\OnboardingRepository;
 use Tightenco\Collect\Support\Collection;
 
 class StatisticsController
 {
 
+    public $onboardingRepository;
+
+    public function __construct(OnboardingRepository $onboardingRepository)
+    {
+        $this->onboardingRepository = $onboardingRepository;
+    }
+
+
+
     public function getData()
     {
+//        dd("Here");
+
+        $this->onboardingRepository->getAllData();
+
         $data = $this->readCSVFile();
         $transformData = $this->transformData($data);
         $chartSeriesData = $this->buildChartSeriesData($transformData);
