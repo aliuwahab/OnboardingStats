@@ -10,7 +10,7 @@ var app = new Vue({
         },
         xAxis: {
             title: {
-                text: 'Steps in Onboarding Flow'
+                text: 'Steps in Onboarding Process'
             },
             categories: []
         },
