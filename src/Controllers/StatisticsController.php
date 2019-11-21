@@ -18,13 +18,15 @@ class StatisticsController
     {
         $data = $this->readCSVFile();
         $transformData = $this->transformData($data);
-        $chatData = $this->buildDataForChart($transformData);
-        return $this->apiResponse($chatData);
+        $chartSeriesData = $this->buildChartSeriesData($transformData);
+        $steps = $this->stepsPercentages()->pluck('step');
+        $apiData = ['series' => $chartSeriesData, 'categories' => $steps];
+        return $this->apiResponse($apiData);
     }
 
 
 
-    public function buildDataForChart(Collection $data)
+    public function buildChartSeriesData(Collection $data)
     {
         // This will loop through the collection of data and put them into weeks
         $groupDataIntoWeeks =  $data->groupBy(function ($userRegistrationDetails){
@@ -36,7 +38,8 @@ class StatisticsController
 
         $statsForSteps = [];
         $groupDataIntoWeeks->each(function ($weeklyData, $key) use(&$statsForSteps){
-            return $statsForSteps [$key] = $this->buildStatsForEachStep($weeklyData);
+            $statsForSteps [] = (object)['name' => $key, 'data' => $this->buildStatsForEachStep($weeklyData)];
+            return $statsForSteps;
         });
 
         return $statsForSteps;
@@ -52,11 +55,9 @@ class StatisticsController
     {
         $steps = $this->stepsPercentages();
         $stepsStats = [];
-
         $steps->each(function ($item, $key) use(&$weeklyData, &$stepsStats){
-            $stepsStats[$item['step']] = $weeklyData->where('onboarding_percentage', '>=', $item['percentage'])->count();
+            $stepsStats[] = round((($weeklyData->where('onboarding_percentage', '>=', $item['percentage'])->count() / $weeklyData->count()) * 100));
         });
-
         return $stepsStats;
     }
 
@@ -69,14 +70,14 @@ class StatisticsController
     public function stepsPercentages()
     {
         return collect([
-                ['name' => 'Create account', 'step' => 1, 'percentage' => 0],
-                ['name' => 'Activate account ', 'step' => 2, 'percentage' => 20],
-                ['name' => 'Provide profile Information', 'step' => 3, 'percentage' => 40],
-                ['name' => 'Jobs Interested In', 'step' => 4, 'percentage' => 50],
-                ['name' => 'Relevant Experience', 'step' => 5, 'percentage' => 70],
-                ['name' => 'Are you a Freelancer', 'step' => 6, 'percentage' => 90],
-                ['name' => 'Waiting for Approval', 'step' => 7, 'percentage' => 99],
-                ['name' => 'Approval', 'step' => 8, 'percentage' => 100],
+                ['name' => 'Create account', 'step' => 0, 'percentage' => 0],
+                ['name' => 'Activate account ', 'step' => 1, 'percentage' => 20],
+                ['name' => 'Provide profile Information', 'step' => 2, 'percentage' => 40],
+                ['name' => 'Jobs Interested In', 'step' => 3, 'percentage' => 50],
+                ['name' => 'Relevant Experience', 'step' => 4, 'percentage' => 70],
+                ['name' => 'Are you a Freelancer', 'step' => 5, 'percentage' => 90],
+                ['name' => 'Waiting for Approval', 'step' => 6, 'percentage' => 99],
+                ['name' => 'Approval', 'step' => 7, 'percentage' => 100],
             ]);
     }
 

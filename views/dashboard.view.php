@@ -75,36 +75,27 @@
 
 
             <div id="chartArea">
-                {{ message }}
-                {{ baseUrl }}
+                <highcharts :options="chartOptions" ref="highcharts"></highcharts>
             </div>
 
+            <br><br><br>
 
-<!--            //Chat HERE-->
-<!--            <canvas  class="my-4 w-100" id="myChart" width="900" height="380">-->
-<!--                {{ text }}-->
-<!--            </canvas>-->
+            <hr>
 
-            <h2>Tabular Representation of the Above Data</h2>
+            <h2>User Progression (Tabular)</h2>
             <div class="table-responsive">
                 <table class="table table-striped table-sm">
                     <thead>
                     <tr>
                         <th>Week</th>
-                        <th>Step 1</th>
-                        <th>Step 2</th>
-                        <th>Step 3</th>
-                        <th>Step 4</th>
-                        <th>Step 5</th>
-                        <th>Step 6</th>
-                        <th>Step 7</th>
-                        <th>Step 8</th>
+
+                        <th v-for="(step) in onboardingStats.categories">Step {{ step }}</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr v-for="(weeklyStat, $key) in onboardingStats">
-                        <td>{{ $key }}</td>
-                        <td v-for="(stat, key) in weeklyStat">{{stat}}</td>
+                    <tr v-for="(weeklydata) in onboardingStats.series">
+                        <td>{{weeklydata.name}}</td>
+                        <td v-for="(percentage) in weeklydata.data">{{percentage }} %</td>
                     </tr>
                     </tbody>
                 </table>
@@ -113,8 +104,25 @@
     </div>
 </div>
 
+<!--External dependencies-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script>
+<!--<script src="https://code.highcharts.com/highcharts.js"></script>-->
+
+
+<!--<script src="https://code.highcharts.com/highcharts.js"></script>-->
+<!--<script>-->
+<!--    highcharts = Highcharts-->
+<!--</script>-->
+<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/highcharts-vue@1.2.0/dist/module/highcharts-vue.js"></script>-->
+
+
+<script src="https://cdn.jsdelivr.net/npm/highcharts@6/highcharts.js"></script>
+<!-- vue-highcharts should be load after Highcharts -->
+<script src="https://cdn.jsdelivr.net/npm/vue-highcharts/dist/vue-highcharts.min.js"></script>
+
+
 
 <script src="/js/dashboard.js"></script>
 
