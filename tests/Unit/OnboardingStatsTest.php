@@ -14,5 +14,4 @@ class OnboardingStatsTest extends TemperTest
     }
 
 
-
 }
