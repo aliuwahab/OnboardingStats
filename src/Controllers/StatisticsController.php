@@ -25,6 +25,18 @@ class StatisticsController
     }
 
 
+
+    public function home(){
+        return view('index');
+    }
+
+
+    public function about()
+    {
+        return view('about');
+    }
+
+
     public function index()
     {
         return view('dashboard');
