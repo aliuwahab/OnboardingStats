@@ -21,26 +21,10 @@ class OnBoardingPresenter implements PresenterInterface
      * @return Collection
      */
     public function transformData($data): array {
-        $organisedData = $this->organisedData($data);
-        $chartSeriesData = $this->buildChartSeriesData($organisedData);
+        $chartSeriesData = $this->buildChartSeriesData($data);
         return $chartSeriesData;
     }
 
-
-    /**
-     * @param $data
-     * @return Collection
-     */
-    private function organisedData($data)
-    {
-        $organisedData = [];
-
-        foreach ($data as $offset => $record) {
-            $organisedData[] = $record;
-        }
-
-        return collect($organisedData);
-    }
 
 
     /**

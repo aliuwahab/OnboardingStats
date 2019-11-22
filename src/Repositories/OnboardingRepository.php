@@ -11,19 +11,20 @@ class OnboardingRepository implements RepositoryInterface
 
     public function getAllRecords()
     {
-        return $this->readCSVFile();
+        $data = $this->readCSVFile();
+        $organisedData = $this->organisedData($data);
+
+        return $organisedData;
     }
 
 
-
-
-    public function readCSVFile(){
+    public function readCSVFile($csvPath = '/../../files/export.csv'){
         if (!ini_get("auto_detect_line_endings")) {
             ini_set("auto_detect_line_endings", '1');
         }
 
         try {
-            $reader = Reader::createFromPath( __DIR__ . '/../../files/export.csv', 'r');
+            $reader = Reader::createFromPath( __DIR__ . $csvPath, 'r');
             $reader->setDelimiter(';');
             $reader->setHeaderOffset(0);
             $records = $reader->getRecords();
@@ -33,6 +34,23 @@ class OnboardingRepository implements RepositoryInterface
         }
 
     }
+
+
+    /**
+     * @param $data
+     * @return Collection
+     */
+    public function organisedData($data)
+    {
+        $organisedData = [];
+
+        foreach ($data as $offset => $record) {
+            $organisedData[] = $record;
+        }
+
+        return collect($organisedData);
+    }
+
 
 
     /**

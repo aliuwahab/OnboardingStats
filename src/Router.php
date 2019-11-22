@@ -83,11 +83,6 @@ class Router
     public function dispatch($uri, $requestType)
     {
 
-//        var_dump($uri, $requestType); exit();
-//        $controller = end(explode('/',$this->routes[$uri]));
-//        var_dump($controller); exit();
-//        return new $controller;
-
         if (array_key_exists($uri, $this->routes[$requestType])) {
 
             return $this->loadAction(...explode("@", $this->routes[$requestType][$uri]));
