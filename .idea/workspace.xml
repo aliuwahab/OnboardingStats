@@ -2,14 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce3de3f3-8633-4306-b658-8850e84cddf0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootsrap.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootsrap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/DashboardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/StatisticsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/StatisticsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Database/Connector.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Presenters/PresenterInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presenters/PresenterInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repositories/OnboardingRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repositories/OnboardingRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repositories/RepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repositories/RepositoryInterface.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Router.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -144,7 +136,7 @@
       <workItem from="1573820713669" duration="69000" />
       <workItem from="1573820895047" duration="21111000" />
       <workItem from="1574076983456" duration="40864000" />
-      <workItem from="1574366405577" duration="6125000" />
+      <workItem from="1574366405577" duration="6238000" />
     </task>
     <servers />
   </component>

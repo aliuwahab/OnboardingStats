@@ -28,20 +28,6 @@ class Router
         $containerBuilder = new \DI\ContainerBuilder();
         $containerBuilder->useAutowiring(true);
         $containerBuilder->useAnnotations(false);
-
-//        $containerBuilder->addDefinitions([
-//            StatisticsController::class => \DI\create(StatisticsController::class)
-//                ->constructor(get(OnboardingRepository::class), get(OnBoardingPresenter::class)),
-//            OnboardingRepository::class => \DI\create(OnboardingRepository::class),
-//            PresenterInterface::class => \DI\create(PresenterInterface::class),
-////            PresenterInterface::class => \DI\create(PresenterInterface::class),
-//            MethodDoesNotExistException::class => \DI\create(MethodDoesNotExistException::class),
-//            RouteNotFoundException::class => \DI\create(RouteNotFoundException::class),
-//            RepositoryInterface::class => \DI\create(RepositoryInterface::class),
-//            DashboardController::class => \DI\create(DashboardController::class),
-//            StaticPagesController::class => \DI\create(StaticPagesController::class),
-//        ]);
-
         $this->container = $containerBuilder->build();
 
     }
