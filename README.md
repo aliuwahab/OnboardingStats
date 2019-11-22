@@ -20,4 +20,5 @@ ii. It also relies on using exsiting packages by using composer to pull them in.
 
 
 ####To run test
-1. Edit `ENV_VARS.php` file and provide the `BASE_URL` you used to run your server: e.g `http://localhost:8885/`  
+1. Edit `ENV_VARS.php` file and provide the `BASE_URL` you used to run your server: e.g `http://localhost:8885/`
+2. In the root folder: run ``vendor/bin/phpunit``  
