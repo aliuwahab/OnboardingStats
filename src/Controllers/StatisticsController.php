@@ -39,6 +39,8 @@ class StatisticsController
 
 
 
+
+//    TODO:: Move these methods to StaticPagesController
     public function home(){
         return view('index');
     }
