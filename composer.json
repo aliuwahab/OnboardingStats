@@ -12,7 +12,8 @@
         "php-di/php-di": "^6.0",
         "league/csv": "^9.0",
         "tightenco/collect": "^6.5",
-        "nesbot/carbon": "^2.26"
+        "nesbot/carbon": "^2.26",
+        "guzzlehttp/guzzle": "~6.0"
     },
     "autoload": {
         "psr-4": {
