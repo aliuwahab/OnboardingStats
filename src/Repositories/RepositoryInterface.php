@@ -5,6 +5,6 @@ namespace Temper\Repositories;
 interface RepositoryInterface
 {
 
-    public function getAllData();
+    public function getAllRecords();
 
 }

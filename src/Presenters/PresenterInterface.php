@@ -1,8 +1,15 @@
 <?php
 
+namespace Temper\Presenters;
+
+use Tightenco\Collect\Support\Collection;
 
 interface PresenterInterface
 {
-    public function transformData();
+    /**
+     * @param $data
+     * @return Collection
+     */
+    public function transformData($data):array;
 
 }

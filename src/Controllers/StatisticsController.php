@@ -5,9 +5,9 @@ namespace Temper\Controllers;
 
 
 use Carbon\Carbon;
-use League\Csv\Exception as CSVException;
-use League\Csv\Reader;
+use Temper\Presenters\OnBoardingPresenter;
 use Temper\Repositories\OnboardingRepository;
+use Temper\Responses\OnboardingStatsApiResponse;
 use Tightenco\Collect\Support\Collection;
 
 class StatisticsController
@@ -15,125 +15,38 @@ class StatisticsController
 
     public $onboardingRepository;
 
-    public function __construct(OnboardingRepository $onboardingRepository)
+    public $onboardingPresenter;
+
+    public $onboardingApiResponse;
+
+    public function __construct(OnboardingRepository $onboardingRepository, OnBoardingPresenter $onboardingPresenter, OnboardingStatsApiResponse $onboardingStatsApiResponse)
     {
         $this->onboardingRepository = $onboardingRepository;
+        $this->onboardingPresenter = $onboardingPresenter;
+        $this->onboardingApiResponse = $onboardingStatsApiResponse;
     }
 
+
+    public function index()
+    {
+        return view('dashboard');
+    }
 
 
     public function getData()
     {
-//        dd("Here");
+        $steps = $this->onboardingRepository->getStepsPercentages()->pluck('step');
 
-        $this->onboardingRepository->getAllData();
+        $data = $this->onboardingRepository->getAllRecords();
 
-        $data = $this->readCSVFile();
-        $transformData = $this->transformData($data);
-        $chartSeriesData = $this->buildChartSeriesData($transformData);
-        $steps = $this->stepsPercentages()->pluck('step');
-        $apiData = ['series' => $chartSeriesData, 'categories' => $steps];
-        return $this->apiResponse($apiData);
+        $transformData = $this->onboardingPresenter->transformData($data);
+
+
+        $apiData = ['series' => $transformData, 'categories' => $steps];
+        return $this->onboardingApiResponse->response($apiData);
     }
 
 
 
-    public function buildChartSeriesData(Collection $data)
-    {
-        // This will loop through the collection of data and put them into weeks
-        $groupDataIntoWeeks =  $data->groupBy(function ($userRegistrationDetails){
-            return Carbon::parse($userRegistrationDetails['created_at'])->format('W');
-        })->keyBy(function(Collection $items, $index){
-            $date = Carbon::parse($items->first()['created_at']);
-            return $date->startOfWeek()->format('d-m-Y');
-        });
-
-        $statsForSteps = [];
-        $groupDataIntoWeeks->each(function ($weeklyData, $key) use(&$statsForSteps){
-            $statsForSteps [] = (object)['name' => $key, 'data' => $this->buildStatsForEachStep($weeklyData)];
-            return $statsForSteps;
-        });
-
-        return $statsForSteps;
-    }
-
-
-    /**
-     * This takes a collection and put determine the stats for each step
-     * @param Collection $weeklyData
-     * @return array
-     */
-    public function buildStatsForEachStep(Collection $weeklyData)
-    {
-        $steps = $this->stepsPercentages();
-        $stepsStats = [];
-        $steps->each(function ($item, $key) use(&$weeklyData, &$stepsStats){
-            $stepsStats[] = round((($weeklyData->where('onboarding_percentage', '>=', $item['percentage'])->count() / $weeklyData->count()) * 100));
-        });
-        return $stepsStats;
-    }
-
-
-    /**
-     * The steps and their percentages.
-     * This could be reading from a database, to make it easy to add more steps or change the flow points
-     * @return Collection
-     */
-    public function stepsPercentages()
-    {
-        return collect([
-                ['name' => 'Create account', 'step' => 0, 'percentage' => 0],
-                ['name' => 'Activate account ', 'step' => 1, 'percentage' => 20],
-                ['name' => 'Provide profile Information', 'step' => 2, 'percentage' => 40],
-                ['name' => 'Jobs Interested In', 'step' => 3, 'percentage' => 50],
-                ['name' => 'Relevant Experience', 'step' => 4, 'percentage' => 70],
-                ['name' => 'Are you a Freelancer', 'step' => 5, 'percentage' => 90],
-                ['name' => 'Waiting for Approval', 'step' => 6, 'percentage' => 99],
-                ['name' => 'Approval', 'step' => 7, 'percentage' => 100],
-            ]);
-    }
-
-    /**
-     * @param $data
-     * @return Collection
-     */
-    public function transformData($data){
-
-        $organisedData = [];
-
-        foreach ($data as $offset => $record) {
-            $organisedData[] = $record;
-        }
-
-        return collect($organisedData);
-    }
-
-
-
-    public function readCSVFile(){
-        if (!ini_get("auto_detect_line_endings")) {
-            ini_set("auto_detect_line_endings", '1');
-        }
-
-        try {
-            $reader = Reader::createFromPath( __DIR__ . '/../../files/export.csv', 'r');
-            $reader->setDelimiter(';');
-            $reader->setHeaderOffset(0);
-            $records = $reader->getRecords();
-            return $records;
-        } catch (CSVException $e) {
-            echo $e->getMessage(), PHP_EOL;
-        }
-
-    }
-
-
-
-    public function apiResponse($data, $response_code = 200)
-    {
-        header('Content-type: application/json');
-        http_response_code ((int)  $response_code );
-        echo json_encode( ['data' => $data] );
-    }
 
 }

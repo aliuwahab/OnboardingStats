@@ -1,0 +1,7 @@
+<?php
+namespace Temper\Responses;
+
+interface ResponsableInterface
+{
+    public function response($data, string $responseCode, $meta);
+}
