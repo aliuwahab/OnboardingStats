@@ -3,12 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="ce3de3f3-8633-4306-b658-8850e84cddf0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/StatisticsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/StatisticsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.php_cs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.php_cs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Presenters/OnBoardingPresenter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presenters/OnBoardingPresenter.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repositories/OnboardingRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repositories/OnboardingRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Router.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/TemperTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/TemperTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/OnboardingStatsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/OnboardingRepositoryTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/OnBoardingPresenterTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/OnBoardingPresenterTest.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -143,7 +141,7 @@
       <workItem from="1573820713669" duration="69000" />
       <workItem from="1573820895047" duration="21111000" />
       <workItem from="1574076983456" duration="40864000" />
-      <workItem from="1574366405577" duration="8647000" />
+      <workItem from="1574366405577" duration="10888000" />
     </task>
     <servers />
   </component>

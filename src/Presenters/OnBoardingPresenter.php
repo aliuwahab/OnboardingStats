@@ -8,7 +8,6 @@ use Tightenco\Collect\Support\Collection;
 
 class OnBoardingPresenter implements PresenterInterface
 {
-
     public $onboadingRepository;
 
     public function __construct(OnboardingRepository $onboardingRepository)
@@ -18,9 +17,10 @@ class OnBoardingPresenter implements PresenterInterface
 
     /**
      * @param $data
-     * @return Collection
+     * @return array
      */
-    public function transformData($data): array {
+    public function transformData($data): array
+    {
         $chartSeriesData = $this->buildChartSeriesData($data);
         return $chartSeriesData;
     }
@@ -31,18 +31,18 @@ class OnBoardingPresenter implements PresenterInterface
      * @param Collection $data
      * @return array
      */
-    private function buildChartSeriesData(Collection $data)
+    public function buildChartSeriesData(Collection $data)
     {
         // This will loop through the collection of data and put them into weeks
-        $groupDataIntoWeeks =  $data->groupBy(function ($userRegistrationDetails){
+        $groupDataIntoWeeks =  $data->groupBy(function ($userRegistrationDetails) {
             return Carbon::parse($userRegistrationDetails['created_at'])->format('W');
-        })->keyBy(function(Collection $items, $index){
+        })->keyBy(function (Collection $items, $index) {
             $date = Carbon::parse($items->first()['created_at']);
             return $date->startOfWeek()->format('d-m-Y');
         });
 
         $statsForSteps = [];
-        $groupDataIntoWeeks->each(function ($weeklyData, $key) use(&$statsForSteps){
+        $groupDataIntoWeeks->each(function ($weeklyData, $key) use (&$statsForSteps) {
             $statsForSteps [] = (object)['name' => $key, 'data' => $this->buildStatsForEachStep($weeklyData)];
             return $statsForSteps;
         });
@@ -57,17 +57,14 @@ class OnBoardingPresenter implements PresenterInterface
      * @param Collection $weeklyData
      * @return array
      */
-    private function buildStatsForEachStep(Collection $weeklyData)
+    public function buildStatsForEachStep(Collection $weeklyData)
     {
+        $weeklyDataCount = ($weeklyData->count() > 0) ? $weeklyData->count(): 1 ;
         $steps = $this->onboadingRepository->getStepsPercentages();
         $stepsStats = [];
-        $steps->each(function ($item, $key) use(&$weeklyData, &$stepsStats){
-            $stepsStats[] = round((($weeklyData->where('onboarding_percentage', '>=', $item['percentage'])->count() / $weeklyData->count()) * 100));
+        $steps->each(function ($item, $key) use (&$weeklyData, &$stepsStats, &$weeklyDataCount) {
+            $stepsStats[] = round((($weeklyData->where('onboarding_percentage', '>=', $item['percentage'])->count() / $weeklyDataCount) * 100));
         });
         return $stepsStats;
     }
-
-
-
-
 }

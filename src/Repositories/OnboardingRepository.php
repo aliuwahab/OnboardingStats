@@ -9,6 +9,9 @@ use Tightenco\Collect\Support\Collection;
 class OnboardingRepository implements RepositoryInterface
 {
 
+    /**
+     * @return Collection
+     */
     public function getAllRecords()
     {
         $data = $this->readCSVFile();
