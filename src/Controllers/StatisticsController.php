@@ -8,8 +8,6 @@ use Carbon\Carbon;
 use Temper\Presenters\OnBoardingPresenter;
 use Temper\Repositories\OnboardingRepository;
 use Temper\Responses\OnboardingStatsApiResponse;
-use Tightenco\Collect\Support\Collection;
-
 class StatisticsController
 {
 

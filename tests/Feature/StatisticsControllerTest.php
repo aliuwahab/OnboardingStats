@@ -17,9 +17,6 @@ class StatisticsControllerTest extends TemperTest
     }
 
 
-
-
-
     /**
      * @test
      */
