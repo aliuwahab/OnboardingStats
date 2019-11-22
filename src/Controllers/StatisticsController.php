@@ -25,6 +25,19 @@ class StatisticsController
     }
 
 
+    /**
+     * This get data for onboardingStats api
+     */
+    public function getData()
+    {
+        $steps = $this->onboardingRepository->getStepsPercentages()->pluck('step');
+        $data = $this->onboardingRepository->getAllRecords();
+        $transformData = $this->onboardingPresenter->transformData($data);
+        $apiData = ['series' => $transformData, 'categories' => $steps];
+        return $this->onboardingApiResponse->response($apiData);
+    }
+
+
 
     public function home(){
         return view('index');
@@ -41,20 +54,6 @@ class StatisticsController
     {
         return view('dashboard');
     }
-
-
-    /**
-     * This get data for onboardingStats api
-     */
-    public function getData()
-    {
-        $steps = $this->onboardingRepository->getStepsPercentages()->pluck('step');
-        $data = $this->onboardingRepository->getAllRecords();
-        $transformData = $this->onboardingPresenter->transformData($data);
-        $apiData = ['series' => $transformData, 'categories' => $steps];
-        return $this->onboardingApiResponse->response($apiData);
-    }
-
 
 
 
