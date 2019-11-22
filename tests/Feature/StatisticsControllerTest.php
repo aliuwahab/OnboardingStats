@@ -13,7 +13,7 @@ class StatisticsControllerTest extends TemperTest
     {
         parent::setUp();
 
-        $this->http = new Client(['base_uri' => 'http://localhost:8885/']);
+        $this->http = new Client(['base_uri' => BASE_URL]);
     }
 
 
@@ -21,7 +21,6 @@ class StatisticsControllerTest extends TemperTest
      * @test
      */
     public function testOnboardingApiRouteIsValid(){
-
         $response = $this->http->request('GET', 'user-agent');
         $this->assertEquals(200, $response->getStatusCode());
     }
