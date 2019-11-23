@@ -2,16 +2,11 @@
 namespace Temper;
 
 
-use phpDocumentor\Reflection\Types\Context;
-use PresenterInterface;
 use Temper\Controllers\DashboardController;
 use Temper\Controllers\StaticPagesController;
 use Temper\Exceptions\MethodDoesNotExistException;
 use Temper\Exceptions\RouteNotFoundException;
 use Temper\Controllers\StatisticsController;
-use Temper\Presenters\OnBoardingPresenter;
-use Temper\Repositories\OnboardingRepository;
-use Temper\Repositories\RepositoryInterface;
 use function DI\get;
 
 /**
@@ -92,15 +87,21 @@ class Router
     }
 
 
-
-
-
+    /**
+     * Load the appropriate controller and method
+     * @param $controller
+     * @param $method
+     * @return mixed
+     * @throws MethodDoesNotExistException
+     * @throws \DI\DependencyException
+     * @throws \DI\NotFoundException
+     */
     private function loadAction($controller, $method){
-
-        $loadController = $this->container->get(StatisticsController::class);
+        $classNameSpace = 'Temper\\Controllers\\'.$controller;
+        $loadController = $this->container->get($classNameSpace);
         if (! method_exists($loadController, $method)) {
 
-            throw new MethodDoesNotExistException("This method does not exist in this controller");
+            throw new MethodDoesNotExistException("This method does not exist in the controller ".$controller);
         }
         return $loadController->$method();
     }

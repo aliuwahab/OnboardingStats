@@ -39,24 +39,4 @@ class StatisticsController
 
 
 
-
-//    TODO:: Move these methods to StaticPagesController
-    public function home(){
-        return view('index');
-    }
-
-
-    public function about()
-    {
-        return view('about');
-    }
-
-
-    public function index()
-    {
-        return view('dashboard');
-    }
-
-
-
 }

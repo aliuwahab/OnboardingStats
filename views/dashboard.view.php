@@ -59,7 +59,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/dashboard">
                             <span data-feather="file"></span>
-                            Orders
+                            Onboarding Curve
                         </a>
                     </li>
                 </ul>
