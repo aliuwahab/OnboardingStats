@@ -19,10 +19,5 @@ class TemperTest extends TestCase
         $containerBuilder->useAutowiring(true);
         $containerBuilder->useAnnotations(false);
         $this->container = $containerBuilder->build();
-
-        $containerBuilder = new \DI\ContainerBuilder();
-        $containerBuilder->useAutowiring(true);
-        $containerBuilder->useAnnotations(false);
-        $this->container = $containerBuilder->build();
     }
 }

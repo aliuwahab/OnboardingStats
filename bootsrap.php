@@ -1,4 +1,5 @@
 <?php
+require_once "ENV_VAR.php";
 require "src/Router.php";
 
 
