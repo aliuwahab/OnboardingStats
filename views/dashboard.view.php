@@ -70,7 +70,7 @@
 
             <br><br><br>
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="h2">Onboarding Flow Progression</h1>
+                <h1 class="h2">Onboarding Flow User Progression (Curve)</h1>
             </div>
 
 
@@ -82,7 +82,7 @@
 
             <hr>
 
-            <h2>User Progression (Tabular)</h2>
+            <h2>Onboarding Flow User Progression (Tabular)</h2>
             <div class="table-responsive">
                 <table class="table table-striped table-sm">
                     <thead>
@@ -102,6 +102,10 @@
             </div>
         </main>
     </div>
+
+    <br>
+    <br>
+    <br>
 </div>
 
 <!--External dependencies jquery, vue and axios-->

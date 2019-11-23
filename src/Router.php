@@ -13,6 +13,10 @@ class Router
 
     public $container;
 
+    /**
+     * Router constructor.
+     * @throws \Exception
+     */
     public function __construct()
     {
         $containerBuilder = new \DI\ContainerBuilder();

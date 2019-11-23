@@ -4,19 +4,27 @@
 namespace Temper\Controllers;
 
 
-use Carbon\Carbon;
 use Temper\Presenters\OnBoardingPresenter;
 use Temper\Repositories\OnboardingRepository;
 use Temper\Responses\OnboardingStatsApiResponse;
+
+/**
+ * Class StatisticsController
+ * @package Temper\Controllers
+ */
 class StatisticsController
 {
 
     public $onboardingRepository;
-
     public $onboardingPresenter;
-
     public $onboardingApiResponse;
 
+    /**
+     * StatisticsController constructor.
+     * @param OnboardingRepository $onboardingRepository
+     * @param OnBoardingPresenter $onboardingPresenter
+     * @param OnboardingStatsApiResponse $onboardingStatsApiResponse
+     */
     public function __construct(OnboardingRepository $onboardingRepository, OnBoardingPresenter $onboardingPresenter, OnboardingStatsApiResponse $onboardingStatsApiResponse)
     {
         $this->onboardingRepository = $onboardingRepository;
@@ -36,7 +44,5 @@ class StatisticsController
         $apiData = ['series' => $transformData, 'categories' => $steps];
         return $this->onboardingApiResponse->response($apiData);
     }
-
-
 
 }

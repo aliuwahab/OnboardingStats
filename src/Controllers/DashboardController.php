@@ -3,7 +3,10 @@
 
 namespace Temper\Controllers;
 
-
+/**
+ * Class DashboardController
+ * @package Temper\Controllers
+ */
 class DashboardController
 {
     /**
