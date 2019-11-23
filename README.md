@@ -10,7 +10,7 @@ ii. It also relies on using exsiting packages by using composer to pull them in.
 1. Ensure you have PHP 7.1+ installed in your environment
 2. Make sure you have composer install in your environment
 
-####Start the app by running
+#### How to start the app:
 1. Navigate into parent folder and run `composer install`
 2. In the parent folder, run `php -S localhost:8885 -t public/`  or any other `localhost:port-of-your-choiice` to start the server 
 3. You can now visit the url in your browser: `http://localhost:8885/` or `http://localhost:the-port-you-entered-above`
