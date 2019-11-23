@@ -6,12 +6,9 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
-    <title>Cover Template · Bootstrap</title>
+    <title>Temper || Home</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/cover/">
-
-    <!-- Bootstrap core CSS -->
-<!--    <link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -23,6 +20,12 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
+        }
+
+        #footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
 
         @media (min-width: 768px) {
@@ -55,7 +58,7 @@
         </p>
     </main>
 
-    <footer class="mastfoot mt-auto">
+    <footer id="footer" class="mastfoot mt-auto">
         <div class="inner">
             <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
         </div>
