@@ -104,25 +104,14 @@
     </div>
 </div>
 
-<!--External dependencies-->
+<!--External dependencies jquery, vue and axios-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script>
-<!--<script src="https://code.highcharts.com/highcharts.js"></script>-->
-
-
-<!--<script src="https://code.highcharts.com/highcharts.js"></script>-->
-<!--<script>-->
-<!--    highcharts = Highcharts-->
-<!--</script>-->
-<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/highcharts-vue@1.2.0/dist/module/highcharts-vue.js"></script>-->
-
 
 <script src="https://cdn.jsdelivr.net/npm/highcharts@6/highcharts.js"></script>
 <!-- vue-highcharts should be load after Highcharts -->
 <script src="https://cdn.jsdelivr.net/npm/vue-highcharts/dist/vue-highcharts.min.js"></script>
-
-
 
 <script src="/js/dashboard.js"></script>
 
