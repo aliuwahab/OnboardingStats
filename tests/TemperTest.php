@@ -3,6 +3,7 @@
 namespace Test;
 
 use PHPUnit\Framework\TestCase;
+use ReflectionClass;
 
 class TemperTest extends TestCase
 {
@@ -20,4 +21,22 @@ class TemperTest extends TestCase
         $containerBuilder->useAnnotations(false);
         $this->container = $containerBuilder->build();
     }
+
+
+    /**
+     * This allows to test private methods
+     * @param $object
+     * @param $methodName
+     * @param array $parameters
+     * @return mixed
+     * @throws \ReflectionException
+     */
+    public function invokeMethod(&$object, $methodName, array $parameters = array())
+    {
+        $reflection = new ReflectionClass(get_class($object));
+        $method = $reflection->getMethod($methodName);
+        $method->setAccessible(true);
+        return $method->invokeArgs($object, $parameters);
+    }
+
 }

@@ -22,6 +22,7 @@ class Router
      */
     public function __construct()
     {
+        //Set DI container
         $containerBuilder = new \DI\ContainerBuilder();
         $containerBuilder->useAutowiring(true);
         $containerBuilder->useAnnotations(false);
@@ -32,6 +33,9 @@ class Router
 
     }
 
+    /**
+     * @var array
+     */
     public $routes  = [
         'GET' => [],
         'POST' => [],

@@ -32,6 +32,7 @@ var app = new Vue({
     }
     },
     methods: {
+
     },
     beforeCreate() {
         this.baseUrl = window.location.origin;

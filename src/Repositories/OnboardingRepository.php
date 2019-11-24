@@ -20,7 +20,10 @@ class OnboardingRepository implements RepositoryInterface
         return $organisedData;
     }
 
-
+    /**
+     * @param string $csvPath
+     * @return mixed
+     */
     public function readCSVFile($csvPath = '/../../files/export.csv'){
         if (!ini_get("auto_detect_line_endings")) {
             ini_set("auto_detect_line_endings", '1');

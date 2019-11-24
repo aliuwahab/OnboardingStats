@@ -57,7 +57,7 @@ class OnBoardingPresenter implements PresenterInterface
      * @param Collection $weeklyData
      * @return array
      */
-    public function buildStatsForEachStep(Collection $weeklyData)
+    private function buildStatsForEachStep(Collection $weeklyData)
     {
         $weeklyDataCount = ($weeklyData->count() > 0) ? $weeklyData->count(): 1 ;
         $steps = $this->onboadingRepository->getStepsPercentages();
