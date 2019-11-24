@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ce3de3f3-8633-4306-b658-8850e84cddf0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpunit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/phpunit.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Responses/OnboardingStatsApiResponse.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Responses/OnboardingStatsApiResponse.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Responses/ResponsableInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Responses/ResponsableInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Request.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Request.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Router.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Integration/StatisticsControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Integration/StatisticsControllerTest.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -97,16 +97,17 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/tests/files" />
-      <recent name="$PROJECT_DIR$/files" />
-      <recent name="$PROJECT_DIR$/src/Exceptions" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tests/Integration" />
       <recent name="$PROJECT_DIR$/files" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/public" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tests/files" />
+      <recent name="$PROJECT_DIR$/files" />
+      <recent name="$PROJECT_DIR$/src/Exceptions" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -153,7 +154,7 @@
       <workItem from="1574433375240" duration="672000" />
       <workItem from="1574499755773" duration="4057000" />
       <workItem from="1574507437549" duration="380000" />
-      <workItem from="1574553574247" duration="1822000" />
+      <workItem from="1574553574247" duration="3584000" />
     </task>
     <servers />
   </component>

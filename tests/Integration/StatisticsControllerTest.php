@@ -12,7 +12,6 @@ class StatisticsControllerTest extends TemperTest
     public function setUp()
     {
         parent::setUp();
-
         $this->http = new Client(['base_uri' => BASE_URL]);
     }
 

@@ -50,6 +50,7 @@ class Router
      * Thus loads the route file
      * @param $file
      * @return static
+     * @throws \Exception
      */
     public static function load($file)
     {
