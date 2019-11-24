@@ -4,8 +4,10 @@ namespace Temper;
 
 use Temper\Exceptions\MethodDoesNotExistException;
 use Temper\Exceptions\RouteNotFoundException;
+use Temper\Models\OnBoardingDataInterface;
 use Temper\Responses\OnboardingStatsApiResponse;
 use Temper\Responses\ResponsableInterface;
+use Temper\Services\CsvReaderService;
 use function DI\get;
 
 /**
@@ -27,7 +29,8 @@ class Router
         $containerBuilder->useAutowiring(true);
         $containerBuilder->useAnnotations(false);
         $containerBuilder->addDefinitions([
-            ResponsableInterface::class => get(OnboardingStatsApiResponse::class)
+            ResponsableInterface::class => get(OnboardingStatsApiResponse::class),
+            OnBoardingDataInterface::class => get(CsvReaderService::class),
         ]);
         $this->container = $containerBuilder->build();
 

@@ -6,9 +6,21 @@ namespace Temper\Services;
 
 use League\Csv\Exception as CSVException;
 use League\Csv\Reader;
+use Temper\Models\OnBoardingDataInterface;
+use Tightenco\Collect\Support\Collection;
 
-class CsvReaderService
+class CsvReaderService implements OnBoardingDataInterface
 {
+
+    /**
+     * @return Collection
+     */
+    public function data(){
+        $data = $this->readCSVFile();
+        $organisedData = $this->organisedData($data);
+        return $organisedData;
+    }
+
 
     /**
      * @param string $csvPath
@@ -29,6 +41,23 @@ class CsvReaderService
             echo $e->getMessage(), PHP_EOL;
         }
 
+    }
+
+
+
+    /**
+     * @param $data
+     * @return Collection
+     */
+    public function organisedData($data)
+    {
+        $organisedData = [];
+
+        foreach ($data as $offset => $record) {
+            $organisedData[] = $record;
+        }
+
+        return collect($organisedData);
     }
 
 }

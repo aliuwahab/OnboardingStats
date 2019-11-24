@@ -1,17 +1,18 @@
 <?php
 
 namespace Temper\Repositories;
+use Temper\Models\OnBoardingDataInterface;
 use Temper\Services\CsvReaderService;
 use Tightenco\Collect\Support\Collection;
 
 class OnboardingRepository implements RepositoryInterface
 {
 
-    public $csvReaderService;
+    public $onBoardingData;
 
-    public function __construct(CsvReaderService $CSVReader)
+    public function __construct(OnBoardingDataInterface $onBoardingDataInterface)
     {
-        $this->csvReaderService = $CSVReader;
+        $this->onBoardingData = $onBoardingDataInterface;
     }
 
     /**
@@ -19,30 +20,9 @@ class OnboardingRepository implements RepositoryInterface
      */
     public function getAllRecords()
     {
-        $data = $this->csvReaderService->readCSVFile();
-        $organisedData = $this->organisedData($data);
-
-        return $organisedData;
+        $data = $this->onBoardingData->data();
+        return $data;
     }
-
-
-
-
-    /**
-     * @param $data
-     * @return Collection
-     */
-    public function organisedData($data)
-    {
-        $organisedData = [];
-
-        foreach ($data as $offset => $record) {
-            $organisedData[] = $record;
-        }
-
-        return collect($organisedData);
-    }
-
 
 
     /**
