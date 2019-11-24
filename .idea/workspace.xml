@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ce3de3f3-8633-4306-b658-8850e84cddf0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/StatisticsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/StatisticsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Router.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -119,9 +120,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="PHPUnit.SampleTest.testAddition">
     <configuration name="SampleTest.testAddition" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Test\SampleTest" file="$PROJECT_DIR$/tests/SampleTest.php" method="testAddition" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
     <recent_temporary>
@@ -146,7 +151,8 @@
       <workItem from="1574366405577" duration="14528000" />
       <workItem from="1574433375240" duration="672000" />
       <workItem from="1574499755773" duration="4057000" />
-      <workItem from="1574507437549" duration="281000" />
+      <workItem from="1574507437549" duration="380000" />
+      <workItem from="1574553574247" duration="397000" />
     </task>
     <servers />
   </component>

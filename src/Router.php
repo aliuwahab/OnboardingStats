@@ -4,6 +4,9 @@ namespace Temper;
 
 use Temper\Exceptions\MethodDoesNotExistException;
 use Temper\Exceptions\RouteNotFoundException;
+use Temper\Responses\OnboardingStatsApiResponse;
+use Temper\Responses\ResponsableInterface;
+use function DI\get;
 
 /**
  * Class Router
@@ -22,6 +25,9 @@ class Router
         $containerBuilder = new \DI\ContainerBuilder();
         $containerBuilder->useAutowiring(true);
         $containerBuilder->useAnnotations(false);
+        $containerBuilder->addDefinitions([
+            ResponsableInterface::class => get(OnboardingStatsApiResponse::class)
+        ]);
         $this->container = $containerBuilder->build();
 
     }

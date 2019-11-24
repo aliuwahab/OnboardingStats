@@ -7,6 +7,7 @@ namespace Temper\Controllers;
 use Temper\Presenters\OnBoardingPresenter;
 use Temper\Repositories\OnboardingRepository;
 use Temper\Responses\OnboardingStatsApiResponse;
+use Temper\Responses\ResponsableInterface;
 
 /**
  * Class StatisticsController
@@ -23,13 +24,13 @@ class StatisticsController
      * StatisticsController constructor.
      * @param OnboardingRepository $onboardingRepository
      * @param OnBoardingPresenter $onboardingPresenter
-     * @param OnboardingStatsApiResponse $onboardingStatsApiResponse
+     * @param ResponsableInterface $onboardingStatsApiResponseInterface
      */
-    public function __construct(OnboardingRepository $onboardingRepository, OnBoardingPresenter $onboardingPresenter, OnboardingStatsApiResponse $onboardingStatsApiResponse)
+    public function __construct(OnboardingRepository $onboardingRepository, OnBoardingPresenter $onboardingPresenter, ResponsableInterface $onboardingStatsApiResponseInterface)
     {
         $this->onboardingRepository = $onboardingRepository;
         $this->onboardingPresenter = $onboardingPresenter;
-        $this->onboardingApiResponse = $onboardingStatsApiResponse;
+        $this->onboardingApiResponse = $onboardingStatsApiResponseInterface;
     }
 
 
