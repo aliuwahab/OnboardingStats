@@ -12,7 +12,7 @@ ii. It also relies on using exsiting packages by using composer to pull them in.
 
 #### How to start the app:
 1. Clone the project at: ``git@github.com:aliuwahab/OnboardingStats.git`` 
-2. Navigate into parent folder and run `composer install`
+2. Navigate into parent folder of project and run `composer install`
 3. In the parent folder, run `php -S localhost:8885 -t public/`  or any other `localhost:port-of-your-choiice` to start the server 
 4. You can now visit the url in your browser: `http://localhost:8885/` or `http://localhost:the-port-you-entered-above`
 5. Click `Visit Dashboard` to see the chart.
