@@ -1,45 +1,31 @@
 <?php
 
 namespace Temper\Repositories;
-
-use League\Csv\Exception as CSVException;
-use League\Csv\Reader;
+use Temper\Services\CsvReaderService;
 use Tightenco\Collect\Support\Collection;
 
 class OnboardingRepository implements RepositoryInterface
 {
+
+    public $csvReaderService;
+
+    public function __construct(CsvReaderService $CSVReader)
+    {
+        $this->csvReaderService = $CSVReader;
+    }
 
     /**
      * @return Collection
      */
     public function getAllRecords()
     {
-        $data = $this->readCSVFile();
+        $data = $this->csvReaderService->readCSVFile();
         $organisedData = $this->organisedData($data);
 
         return $organisedData;
     }
 
-    /**
-     * @param string $csvPath
-     * @return mixed
-     */
-    public function readCSVFile($csvPath = '/../../files/export.csv'){
-        if (!ini_get("auto_detect_line_endings")) {
-            ini_set("auto_detect_line_endings", '1');
-        }
 
-        try {
-            $reader = Reader::createFromPath( __DIR__ . $csvPath, 'r');
-            $reader->setDelimiter(';');
-            $reader->setHeaderOffset(0);
-            $records = $reader->getRecords();
-            return $records;
-        } catch (CSVException $e) {
-            echo $e->getMessage(), PHP_EOL;
-        }
-
-    }
 
 
     /**
