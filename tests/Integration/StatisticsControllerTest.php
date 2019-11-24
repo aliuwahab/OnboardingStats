@@ -1,5 +1,5 @@
 <?php
-namespace Test\Feature;
+namespace Test\Integration;
 
 
 use GuzzleHttp\Client;

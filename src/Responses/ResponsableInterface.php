@@ -3,5 +3,5 @@ namespace Temper\Responses;
 
 interface ResponsableInterface
 {
-    public function response($data, string $responseCode, $meta);
+    public function response($data, $responseCode, $meta);
 }

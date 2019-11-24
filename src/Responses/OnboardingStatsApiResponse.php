@@ -8,7 +8,7 @@ class OnboardingStatsApiResponse implements ResponsableInterface
 {
 
 
-    public function response($data, string $responseCode = '200', $meta = null)
+    public function response($data, $responseCode = '200', $meta = null)
     {
         header('Content-type: application/json');
         http_response_code ((int)  $responseCode);
