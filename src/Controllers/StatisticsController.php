@@ -6,7 +6,6 @@ namespace Temper\Controllers;
 
 use Temper\Presenters\OnBoardingPresenter;
 use Temper\Repositories\OnboardingRepository;
-use Temper\Responses\OnboardingStatsApiResponse;
 use Temper\Responses\ResponsableInterface;
 
 /**
@@ -15,7 +14,6 @@ use Temper\Responses\ResponsableInterface;
  */
 class StatisticsController
 {
-
     public $onboardingRepository;
     public $onboardingPresenter;
     public $onboardingApiResponse;

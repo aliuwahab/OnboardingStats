@@ -13,15 +13,6 @@ class OnboardingRepositoryTest extends TemperTest
         $this->assertInstanceOf(Collection::class, $data);
     }
 
-
-    function testOrganisedData()
-    {
-        $rawData = [1,2,3, 4,5];
-        $onboardingRepository = $this->container->get(OnboardingRepository::class);
-        $data = $onboardingRepository->organisedData($rawData);
-        $this->assertInstanceOf(Collection::class, $data);
-    }
-
     function testgetStepsPercentages()
     {
         $onboardingRepository = $this->container->get(OnboardingRepository::class);

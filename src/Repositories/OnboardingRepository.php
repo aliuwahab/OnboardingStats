@@ -2,7 +2,6 @@
 
 namespace Temper\Repositories;
 use Temper\Models\OnBoardingDataInterface;
-use Temper\Services\CsvReaderService;
 use Tightenco\Collect\Support\Collection;
 
 class OnboardingRepository implements RepositoryInterface

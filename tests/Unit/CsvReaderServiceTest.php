@@ -6,6 +6,7 @@ namespace Test;
 
 use League\Csv\MapIterator;
 use Temper\Services\CsvReaderService;
+use Tightenco\Collect\Support\Collection;
 
 class CsvReaderServiceTest extends TemperTest
 {
@@ -20,6 +21,13 @@ class CsvReaderServiceTest extends TemperTest
         $csvReaderService = $this->container->get(CsvReaderService::class);
         $data = $csvReaderService->readCSVFile('invalidCSV');
         $this->assertNull($data);
+    }
+
+    function testValidDataReturned(){
+
+        $csvReaderService = $this->container->get(CsvReaderService::class);
+        $data = $csvReaderService->data();
+        $this->assertInstanceOf(Collection::class, $data);
     }
 
 }

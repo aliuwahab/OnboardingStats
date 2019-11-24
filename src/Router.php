@@ -24,16 +24,8 @@ class Router
      */
     public function __construct()
     {
-        //Set DI container
-        $containerBuilder = new \DI\ContainerBuilder();
-        $containerBuilder->useAutowiring(true);
-        $containerBuilder->useAnnotations(false);
-        $containerBuilder->addDefinitions([
-            ResponsableInterface::class => get(OnboardingStatsApiResponse::class),
-            OnBoardingDataInterface::class => get(CsvReaderService::class),
-        ]);
-        $this->container = $containerBuilder->build();
-
+        //Load/Set DI container
+        require dirname(__DIR__).'/configuration/DI.php';
     }
 
     /**

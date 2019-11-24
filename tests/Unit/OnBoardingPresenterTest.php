@@ -10,14 +10,8 @@ class OnBoardingPresenterTest extends TemperTest
 {
 
     function testbuildStatsForEachStep(){
-
-//        $onboardingPresenter = $this->container->get(OnBoardingPresenter::class);
-
-
         $onboardingPresenter = $this->container->get(OnBoardingPresenter::class);
         $data = $this->invokeMethod($onboardingPresenter, 'buildStatsForEachStep', array(collect([])));
-
-//        $data = $onboardingPresenter->buildStatsForEachStep(collect([]));
         $this->assertIsArray($data);
     }
 
