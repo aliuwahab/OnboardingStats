@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce3de3f3-8633-4306-b658-8850e84cddf0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/StatisticsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/StatisticsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repositories/OnboardingRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repositories/OnboardingRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Router.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/TemperTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/TemperTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/CsvReaderServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/CsvReaderServiceTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/OnBoardingPresenterTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/OnBoardingPresenterTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/OnboardingRepositoryTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/OnboardingRepositoryTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configuration/DI.php" beforeDir="false" afterPath="$PROJECT_DIR$/configuration/DI.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -159,7 +151,7 @@
       <workItem from="1574433375240" duration="672000" />
       <workItem from="1574499755773" duration="4057000" />
       <workItem from="1574507437549" duration="380000" />
-      <workItem from="1574553574247" duration="8833000" />
+      <workItem from="1574553574247" duration="8923000" />
     </task>
     <servers />
   </component>

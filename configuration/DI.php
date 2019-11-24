@@ -11,6 +11,7 @@ $containerBuilder = new \DI\ContainerBuilder();
 $containerBuilder->useAutowiring(true);
 $containerBuilder->useAnnotations(false);
 $containerBuilder->addDefinitions([
+    // Class Bindings
     ResponsableInterface::class => get(OnboardingStatsApiResponse::class),
     OnBoardingDataInterface::class => get(CsvReaderService::class),
 ]);
