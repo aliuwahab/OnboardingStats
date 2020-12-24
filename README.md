@@ -1,4 +1,4 @@
-###Temper@CasperCoding Challenge
+###Simple Practice Coding Challenge
 This shows a Retention curve  for users (weekly cohorts) as the progressed through the Onboarding Flow for Temper.
 
 #### NOTE
